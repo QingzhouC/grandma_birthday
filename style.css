@@ -1,0 +1,1118 @@
+/* =========================
+   基础
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #070301;
+  color: white;
+
+  font-family:
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
+}
+
+
+/* =========================
+   启动页
+========================= */
+
+#start-screen {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #6e230b 0%,
+      #280a03 40%,
+      #050101 100%
+    );
+
+  transition:
+
+    opacity 1.4s ease,
+    transform 1.4s ease;
+
+}
+
+
+#start-screen.hide {
+
+  opacity: 0;
+
+  transform: scale(1.15);
+
+  pointer-events: none;
+
+}
+
+
+.start-glow {
+
+  position: absolute;
+
+  width: 80vw;
+  height: 80vw;
+
+  max-width: 600px;
+  max-height: 600px;
+
+  border-radius: 50%;
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(255, 184, 71, 0.26),
+      rgba(255, 84, 0, 0.05),
+      transparent 70%
+    );
+
+  animation:
+
+    glowPulse 3s infinite ease-in-out;
+
+}
+
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+
+    transform: scale(0.9);
+
+    opacity: 0.5;
+
+  }
+
+  50% {
+
+    transform: scale(1.2);
+
+    opacity: 1;
+
+  }
+
+}
+
+
+.start-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  padding: 30px;
+
+}
+
+
+.mini-title {
+
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 18px;
+
+  color: #ffc77b;
+
+}
+
+
+.start-content h1 {
+
+  font-size:
+
+    clamp(
+      36px,
+      10vw,
+      60px
+    );
+
+  color: #fff3d4;
+
+  text-shadow:
+
+    0 0 10px #ffb142,
+    0 0 25px #ff7b00,
+    0 0 50px #d72b00;
+
+}
+
+
+.start-content p {
+
+  margin-top: 14px;
+
+  color: #ffd69b;
+
+  letter-spacing: 3px;
+
+}
+
+
+#start-btn {
+
+  margin-top: 45px;
+
+  padding:
+
+    15px
+    32px;
+
+  border-radius: 50px;
+
+  border:
+
+    1px solid
+    rgba(
+      255,
+      222,
+      155,
+      0.8
+    );
+
+  color: #3a1100;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #fff0b0,
+      #e69a28
+    );
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  box-shadow:
+
+    0 0 15px
+    rgba(
+      255,
+      179,
+      71,
+      0.8
+    ),
+
+    0 0 40px
+    rgba(
+      255,
+      92,
+      0,
+      0.35
+    );
+
+}
+
+
+.start-tip {
+
+  margin-top: 12px;
+
+  color:
+
+    rgba(
+      255,
+      255,
+      255,
+      0.6
+    );
+
+  font-size: 11px;
+
+}
+
+
+
+/* =========================
+   主场景
+========================= */
+
+#birthday-scene {
+
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  background: #000;
+
+}
+
+
+.background-image {
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transform: scale(1.08);
+
+}
+
+
+#birthday-scene.active
+.background-image {
+
+  animation:
+
+    cinematicZoom
+    14s
+    ease-out
+    forwards;
+
+}
+
+
+@keyframes cinematicZoom {
+
+  from {
+
+    transform:
+
+      scale(1.18);
+
+  }
+
+  to {
+
+    transform:
+
+      scale(1);
+
+  }
+
+}
+
+
+
+/* =========================
+   暗角
+========================= */
+
+.vignette {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    radial-gradient(
+      circle,
+      transparent 45%,
+      rgba(0,0,0,0.55) 100%
+    );
+
+}
+
+
+
+/* =========================
+   金色扫光
+========================= */
+
+.gold-light {
+
+  position: absolute;
+
+  width: 180%;
+
+  height: 30%;
+
+  top: -20%;
+
+  left: -40%;
+
+  transform: rotate(-35deg);
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,194,94,0.28),
+      transparent
+    );
+
+  filter:
+
+    blur(18px);
+
+  animation:
+
+    goldSweep
+    8s
+    linear
+    infinite;
+
+}
+
+
+@keyframes goldSweep {
+
+  from {
+
+    transform:
+
+      translateY(-300px)
+      rotate(-35deg);
+
+  }
+
+  to {
+
+    transform:
+
+      translateY(150vh)
+      rotate(-35deg);
+
+  }
+
+}
+
+
+
+/* =========================
+   主标题
+========================= */
+
+.main-message {
+
+  position: absolute;
+
+  width: 100%;
+
+  top: 7%;
+
+  text-align: center;
+
+  z-index: 5;
+
+  opacity: 0;
+
+  transform:
+
+    translateY(-30px);
+
+}
+
+
+#birthday-scene.active
+.main-message {
+
+  animation:
+
+    showMessage
+    1.5s
+    1.2s
+    forwards;
+
+}
+
+
+.main-message small {
+
+  font-size: 9px;
+
+  letter-spacing: 5px;
+
+  color: #ffd386;
+
+}
+
+
+.main-message h2 {
+
+  margin-top: 5px;
+
+  font-size:
+
+    clamp(
+      30px,
+      9vw,
+      54px
+    );
+
+  color: white;
+
+  text-shadow:
+
+    0 0 7px #fff,
+    0 0 15px #ffbd45,
+    0 0 35px #ff7600;
+
+}
+
+
+.main-message p {
+
+  margin-top: 6px;
+
+  font-size: 13px;
+
+  color: #ffe0a9;
+
+  letter-spacing: 3px;
+
+}
+
+
+@keyframes showMessage {
+
+  to {
+
+    opacity: 1;
+
+    transform:
+
+      translateY(0);
+
+  }
+
+}
+
+
+
+/* =========================
+   HUD
+========================= */
+
+.hud {
+
+  position: absolute;
+
+  padding:
+
+    8px
+    12px;
+
+  border:
+
+    1px solid
+    rgba(
+      255,
+      194,
+      88,
+      0.7
+    );
+
+  background:
+
+    rgba(
+      40,
+      10,
+      0,
+      0.35
+    );
+
+  backdrop-filter:
+
+    blur(8px);
+
+  color: #ffe1a2;
+
+  font-size: 10px;
+
+  z-index: 5;
+
+  box-shadow:
+
+    0 0 12px
+    rgba(
+      255,
+      174,
+      55,
+      0.35
+    );
+
+  opacity: 0;
+
+}
+
+
+.hud strong {
+
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 15px;
+
+  color: white;
+
+}
+
+
+.hud.top {
+
+  top: 22%;
+
+  right: 5%;
+
+}
+
+
+.hud.left {
+
+  top: 47%;
+
+  left: 5%;
+
+}
+
+
+.hud.right {
+
+  bottom: 27%;
+
+  right: 5%;
+
+}
+
+
+#birthday-scene.active
+.hud {
+
+  animation:
+
+    hudShow
+    1s
+    2.5s
+    forwards;
+
+}
+
+
+@keyframes hudShow {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+
+      scale(0.7);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+
+      scale(1);
+
+  }
+
+}
+
+
+
+/* =========================
+   祥云
+========================= */
+
+.cloud {
+
+  position: absolute;
+
+  z-index: 4;
+
+  color:
+
+    rgba(
+      255,
+      212,
+      137,
+      0.45
+    );
+
+  font-size: 80px;
+
+  filter:
+
+    blur(1px);
+
+  animation:
+
+    cloudMove
+    linear
+    infinite;
+
+}
+
+
+.cloud-1 {
+
+  top: 20%;
+
+  left: -30%;
+
+  animation-duration: 18s;
+
+}
+
+
+.cloud-2 {
+
+  top: 55%;
+
+  left: -40%;
+
+  animation-duration: 25s;
+
+}
+
+
+.cloud-3 {
+
+  top: 75%;
+
+  left: -50%;
+
+  animation-duration: 30s;
+
+}
+
+
+@keyframes cloudMove {
+
+  to {
+
+    transform:
+
+      translateX(160vw);
+
+  }
+
+}
+
+
+
+/* =========================
+   福星寿星
+========================= */
+
+.god {
+
+  position: absolute;
+
+  bottom: 13%;
+
+  z-index: 8;
+
+  text-align: center;
+
+  opacity: 0;
+
+}
+
+
+.god-symbol {
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 30px;
+
+  color: #7c1700;
+
+  background:
+
+    radial-gradient(
+      circle,
+      #fff3af,
+      #efaa36
+    );
+
+  box-shadow:
+
+    0 0 15px #ffb53e,
+    0 0 40px rgba(255, 71, 0, 0.7);
+
+}
+
+
+.god span {
+
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 10px;
+
+  color: #ffe2a4;
+
+}
+
+
+.blessing {
+
+  left: 8%;
+
+}
+
+
+.longevity {
+
+  right: 8%;
+
+}
+
+
+#birthday-scene.active
+.blessing {
+
+  animation:
+
+    godAppear
+    1.2s
+    4s
+    forwards;
+
+}
+
+
+#birthday-scene.active
+.longevity {
+
+  animation:
+
+    godAppear
+    1.2s
+    4.6s
+    forwards;
+
+}
+
+
+@keyframes godAppear {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+
+      translateY(50px)
+      scale(0.5);
+
+  }
+
+  70% {
+
+    transform:
+
+      translateY(-10px)
+      scale(1.15);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+
+      translateY(0)
+      scale(1);
+
+  }
+
+}
+
+
+
+/* =========================
+   蛋糕按钮
+========================= */
+
+#cake-btn {
+
+  position: absolute;
+
+  bottom: 5%;
+
+  left: 50%;
+
+  transform:
+
+    translateX(-50%);
+
+  z-index: 10;
+
+  border: none;
+
+  border-radius: 40px;
+
+  padding:
+
+    11px
+    20px;
+
+  color: #4b1700;
+
+  font-weight: 700;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #fff0ae,
+      #eda031
+    );
+
+  box-shadow:
+
+    0 0 20px
+    rgba(
+      255,
+      177,
+      63,
+      0.8
+    );
+
+  animation:
+
+    buttonPulse
+    2s
+    infinite;
+
+}
+
+
+@keyframes buttonPulse {
+
+  50% {
+
+    box-shadow:
+
+      0 0 40px
+      rgba(
+        255,
+        126,
+        0,
+        1
+      );
+
+  }
+
+}
+
+
+
+/* =========================
+   最终祝福
+========================= */
+
+#wish-panel {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 50;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+
+    rgba(
+      20,
+      3,
+      0,
+      0.75
+    );
+
+  backdrop-filter:
+
+    blur(10px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+
+    opacity
+    1s;
+
+}
+
+
+#wish-panel.show {
+
+  opacity: 1;
+
+  pointer-events: auto;
+
+}
+
+
+.wish-inner {
+
+  width: 82%;
+
+  padding:
+
+    35px
+    25px;
+
+  text-align: center;
+
+  border:
+
+    1px solid
+    rgba(
+      255,
+      206,
+      116,
+      0.8
+    );
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(89,19,0,0.8),
+      rgba(18,3,0,0.9)
+    );
+
+  box-shadow:
+
+    0 0 40px
+    rgba(
+      255,
+      103,
+      0,
+      0.45
+    );
+
+}
+
+
+.wish-inner small {
+
+  color: #ffc467;
+
+}
+
+
+.wish-inner h2 {
+
+  margin-top: 12px;
+
+  font-size: 42px;
+
+  color: #fff4cf;
+
+  text-shadow:
+
+    0 0 15px
+    #ffad28;
+
+}
+
+
+.wish-inner p {
+
+  margin-top: 20px;
+
+  line-height: 2;
+
+  color: #ffe1ad;
+
+}
+
+
+
+/* =========================
+   粒子
+========================= */
+
+.particle {
+
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+
+    0 0 8px #ffce78;
+
+  pointer-events: none;
+
+}
+
+
+
+/* =========================
+   烟花 canvas
+========================= */
+
+#fireworks {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  z-index: 40;
+
+}

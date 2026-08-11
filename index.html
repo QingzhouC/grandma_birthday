@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>奶奶生日快乐</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       启动页面
+  ========================== -->
+
+  <section id="start-screen">
+
+    <div class="start-glow"></div>
+
+    <div class="start-content">
+
+      <div class="mini-title">
+        福寿系统 · 等待启动
+      </div>
+
+      <h1>
+        奶奶生日快乐
+      </h1>
+
+      <p>
+        福星高照 · 寿比南山
+      </p>
+
+      <button id="start-btn">
+        ✦ 开启寿宴 ✦
+      </button>
+
+      <div class="start-tip">
+        点击开启生日音乐
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       主场景
+  ========================== -->
+
+  <main id="birthday-scene">
+
+    <!-- 背景图片 -->
+    <img
+      src="images/grandma-birthday.png"
+      class="background-image"
+      alt="奶奶生日快乐"
+    >
+
+
+    <!-- 暗角 -->
+    <div class="vignette"></div>
+
+
+    <!-- 金色光 -->
+    <div class="gold-light"></div>
+
+
+    <!-- HUD -->
+    <div class="hud top">
+
+      <span>
+        ✦ 福寿值
+      </span>
+
+      <strong>
+        100%
+      </strong>
+
+    </div>
+
+
+    <div class="hud left">
+
+      <span>
+        健康指数
+      </span>
+
+      <strong>
+        100%
+      </strong>
+
+    </div>
+
+
+    <div class="hud right">
+
+      <span>
+        今日主角
+      </span>
+
+      <strong>
+        奶奶
+      </strong>
+
+    </div>
+
+
+
+    <!-- 中间祝福 -->
+    <div class="main-message">
+
+      <small>
+        TODAY'S STAR
+      </small>
+
+      <h2>
+        奶奶生日快乐
+      </h2>
+
+      <p>
+        福如东海 · 寿比南山
+      </p>
+
+    </div>
+
+
+
+    <!-- 飘动祥云 -->
+    <div class="cloud cloud-1">
+        ☁
+    </div>
+
+    <div class="cloud cloud-2">
+        ☁
+    </div>
+
+    <div class="cloud cloud-3">
+        ☁
+    </div>
+
+
+
+    <!-- 福星 -->
+    <div class="god blessing">
+
+      <div class="god-symbol">
+        福
+      </div>
+
+      <span>
+        福星降临
+      </span>
+
+    </div>
+
+
+
+    <!-- 寿星 -->
+    <div class="god longevity">
+
+      <div class="god-symbol">
+        寿
+      </div>
+
+      <span>
+        寿星降临
+      </span>
+
+    </div>
+
+
+
+    <!-- 点击蛋糕提示 -->
+    <button id="cake-btn">
+
+      ✨ 点击蛋糕许愿
+
+    </button>
+
+
+
+    <!-- 最终祝福 -->
+    <div id="wish-panel">
+
+      <div class="wish-inner">
+
+        <small>
+          福寿系统已满载
+        </small>
+
+        <h2>
+          福如东海
+        </h2>
+
+        <h2>
+          寿比南山
+        </h2>
+
+        <p>
+          愿奶奶岁岁平安，天天开心 ❤️
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- 粒子 -->
+    <div id="particles"></div>
+
+
+    <!-- 烟花 -->
+    <canvas id="fireworks"></canvas>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       音乐
+  ========================== -->
+
+  <audio
+    id="birthday-music"
+    loop
+    preload="auto"
+  >
+
+    <source
+      src="music/birthday.mp3"
+      type="audio/mpeg"
+    >
+
+  </audio>
+
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
