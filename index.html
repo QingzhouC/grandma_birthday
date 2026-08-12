@@ -9,25 +9,35 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   >
 
+  <meta name="theme-color" content="#2a0800">
+
   <title>奶奶生日快乐</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-  <!-- =========================
+
+  <!-- =====================================================
        启动页面
-  ========================== -->
+  ====================================================== -->
 
   <section id="start-screen">
 
     <div class="start-glow"></div>
 
+    <div class="start-lines"></div>
+
     <div class="start-content">
 
       <div class="mini-title">
-        福寿系统 · 等待启动
+        FUSHOU SYSTEM · 福寿系统
+      </div>
+
+      <div class="start-status">
+        ● 等待寿宴启动
       </div>
 
       <h1>
@@ -38,8 +48,16 @@
         福星高照 · 寿比南山
       </p>
 
+      <div class="lunar-date">
+        农历六月三十
+      </div>
+
       <button id="start-btn">
-        ✦ 开启寿宴 ✦
+
+        <span>
+          ✦ 开启寿宴 ✦
+        </span>
+
       </button>
 
       <div class="start-tip">
@@ -52,30 +70,49 @@
 
 
 
-  <!-- =========================
-       主场景
-  ========================== -->
+  <!-- =====================================================
+       主生日场景
+  ====================================================== -->
 
   <main id="birthday-scene">
 
+
     <!-- 背景图片 -->
+
     <img
+      id="backgroundImage"
       src="images/grandma-birthday.png"
       class="background-image"
       alt="奶奶生日快乐"
     >
 
 
+    <!-- 背景渐变 -->
+
+    <div class="scene-overlay"></div>
+
+
     <!-- 暗角 -->
+
     <div class="vignette"></div>
 
 
-    <!-- 金色光 -->
+    <!-- 金色扫光 -->
+
     <div class="gold-light"></div>
 
 
-    <!-- HUD -->
-    <div class="hud top">
+    <!-- 扫描线 -->
+
+    <div class="scan-line"></div>
+
+
+
+    <!-- =================================================
+         HUD
+    ================================================== -->
+
+    <div class="hud hud-top">
 
       <span>
         ✦ 福寿值
@@ -88,23 +125,23 @@
     </div>
 
 
-    <div class="hud left">
+    <div class="hud hud-left">
 
       <span>
-        健康指数
+        HEALTH
       </span>
 
       <strong>
-        100%
+        健康满格
       </strong>
 
     </div>
 
 
-    <div class="hud right">
+    <div class="hud hud-right">
 
       <span>
-        今日主角
+        TODAY'S STAR
       </span>
 
       <strong>
@@ -115,7 +152,10 @@
 
 
 
-    <!-- 中间祝福 -->
+    <!-- =================================================
+         主标题
+    ================================================== -->
+
     <div class="main-message">
 
       <small>
@@ -127,75 +167,162 @@
       </h2>
 
       <p>
-        福如东海 · 寿比南山
+        农历六月三十 · 福如东海 · 寿比南山
       </p>
 
     </div>
 
 
 
-    <!-- 飘动祥云 -->
+    <!-- =================================================
+         祥云
+    ================================================== -->
+
     <div class="cloud cloud-1">
-        ☁
+      ☁
     </div>
 
     <div class="cloud cloud-2">
-        ☁
+      ☁
     </div>
 
     <div class="cloud cloud-3">
-        ☁
+      ☁
     </div>
 
 
 
-    <!-- 福星 -->
-    <div class="god blessing">
+    <!-- =================================================
+         福按钮
+    ================================================== -->
+
+    <button
+      class="god blessing"
+      id="fu-btn"
+      aria-label="点击召唤福星"
+    >
+
+      <div class="god-ring"></div>
 
       <div class="god-symbol">
         福
       </div>
 
       <span>
-        福星降临
+        点击召唤福星
       </span>
 
-    </div>
+    </button>
 
 
 
-    <!-- 寿星 -->
-    <div class="god longevity">
+    <!-- =================================================
+         寿按钮
+    ================================================== -->
+
+    <button
+      class="god longevity"
+      id="shou-btn"
+      aria-label="点击召唤寿星"
+    >
+
+      <div class="god-ring"></div>
 
       <div class="god-symbol">
         寿
       </div>
 
       <span>
-        寿星降临
+        点击召唤寿星
       </span>
-
-    </div>
-
-
-
-    <!-- 点击蛋糕提示 -->
-    <button id="cake-btn">
-
-      ✨ 点击蛋糕许愿
 
     </button>
 
 
 
-    <!-- 最终祝福 -->
+    <!-- =================================================
+         蛋糕按钮
+    ================================================== -->
+
+    <button id="cake-btn">
+
+      <span class="cake-icon">
+        ✨
+      </span>
+
+      点击蛋糕许愿
+
+    </button>
+
+
+
+    <!-- =================================================
+         福 / 寿 特效层
+    ================================================== -->
+
+    <div id="blessing-effect-layer"></div>
+
+
+
+    <!-- =================================================
+         福寿祝福弹层
+    ================================================== -->
+
+    <div id="blessing-popup">
+
+      <div class="popup-rays"></div>
+
+      <div class="popup-card">
+
+        <div
+          id="popup-symbol"
+          class="popup-symbol"
+        >
+          福
+        </div>
+
+        <div
+          id="popup-mini"
+          class="popup-mini"
+        >
+          FUSHOU SYSTEM
+        </div>
+
+        <h2 id="popup-title">
+          福星降临
+        </h2>
+
+        <p id="popup-text">
+          愿奶奶福气满满
+        </p>
+
+        <div class="popup-hint">
+          点击任意位置继续
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         最终祝福
+    ================================================== -->
+
     <div id="wish-panel">
+
+      <div class="wish-rays"></div>
 
       <div class="wish-inner">
 
         <small>
-          福寿系统已满载
+          ✦ 福寿系统已满载 ✦
         </small>
+
+        <div class="wish-symbol">
+          寿
+        </div>
 
         <h2>
           福如东海
@@ -206,8 +333,18 @@
         </h2>
 
         <p>
-          愿奶奶岁岁平安，天天开心 ❤️
+          愿奶奶身体健康、岁岁平安，
+          <br>
+          天天开心、福寿绵长 ❤️
         </p>
+
+        <div class="wish-date">
+          农历六月三十
+        </div>
+
+        <div class="wish-tip">
+          点击任意位置返回
+        </div>
 
       </div>
 
@@ -215,11 +352,13 @@
 
 
 
-    <!-- 粒子 -->
+    <!-- 普通金色粒子 -->
+
     <div id="particles"></div>
 
 
     <!-- 烟花 -->
+
     <canvas id="fireworks"></canvas>
 
 
@@ -227,9 +366,9 @@
 
 
 
-  <!-- =========================
+  <!-- =====================================================
        音乐
-  ========================== -->
+  ====================================================== -->
 
   <audio
     id="birthday-music"

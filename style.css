@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================================
    基础
-========================= */
+========================================================= */
 
 * {
   margin: 0;
@@ -16,19 +16,25 @@ body {
 }
 
 body {
-  background: #070301;
+  background: #080100;
+
   color: white;
 
   font-family:
     "PingFang SC",
     "Microsoft YaHei",
+    Arial,
     sans-serif;
+
+  -webkit-tap-highlight-color: transparent;
+
+  user-select: none;
 }
 
 
-/* =========================
-   启动页
-========================= */
+/* =========================================================
+   启动页面
+========================================================= */
 
 #start-screen {
 
@@ -36,28 +42,30 @@ body {
 
   inset: 0;
 
-  z-index: 100;
+  z-index: 500;
 
   display: flex;
 
   justify-content: center;
   align-items: center;
 
+  overflow: hidden;
+
   text-align: center;
 
   background:
     radial-gradient(
-      circle at center,
-      #6e230b 0%,
-      #280a03 40%,
-      #050101 100%
+      circle at 50% 45%,
+      #782108 0%,
+      #351007 37%,
+      #0c0201 72%,
+      #020000 100%
     );
 
   transition:
-
-    opacity 1.4s ease,
-    transform 1.4s ease;
-
+    opacity 1.3s ease,
+    transform 1.3s ease,
+    filter 1.3s ease;
 }
 
 
@@ -65,60 +73,97 @@ body {
 
   opacity: 0;
 
-  transform: scale(1.15);
+  transform: scale(1.12);
+
+  filter: blur(12px);
 
   pointer-events: none;
-
 }
 
+
+/* 金光 */
 
 .start-glow {
 
   position: absolute;
 
-  width: 80vw;
-  height: 80vw;
+  width: 100vw;
+  height: 100vw;
 
-  max-width: 600px;
-  max-height: 600px;
+  max-width: 800px;
+  max-height: 800px;
 
   border-radius: 50%;
 
   background:
-
     radial-gradient(
       circle,
-      rgba(255, 184, 71, 0.26),
-      rgba(255, 84, 0, 0.05),
+      rgba(255, 215, 124, 0.28),
+      rgba(255, 119, 20, 0.12) 35%,
       transparent 70%
     );
 
   animation:
-
-    glowPulse 3s infinite ease-in-out;
-
+    startGlow 3s ease-in-out infinite;
 }
 
 
-@keyframes glowPulse {
+@keyframes startGlow {
 
   0%,
   100% {
 
-    transform: scale(0.9);
+    opacity: 0.55;
 
-    opacity: 0.5;
+    transform:
+      scale(0.85);
 
   }
 
   50% {
 
-    transform: scale(1.2);
-
     opacity: 1;
+
+    transform:
+      scale(1.12);
 
   }
 
+}
+
+
+/* 赛博线 */
+
+.start-lines {
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.15;
+
+  background-image:
+
+    linear-gradient(
+      rgba(255, 190, 85, 0.12) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(255, 190, 85, 0.08) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    40px 40px;
+
+  mask-image:
+    radial-gradient(
+      circle,
+      black,
+      transparent 75%
+    );
 }
 
 
@@ -126,44 +171,71 @@ body {
 
   position: relative;
 
-  z-index: 2;
+  z-index: 3;
 
-  padding: 30px;
+  width: 88%;
 
+  max-width: 480px;
+
+  padding: 30px 20px;
 }
 
 
 .mini-title {
 
-  font-size: 11px;
+  font-size: 10px;
 
   letter-spacing: 4px;
 
+  color: #ffd47d;
+
+  opacity: 0.9;
+
+  margin-bottom: 16px;
+}
+
+
+.start-status {
+
+  display: inline-block;
+
   margin-bottom: 18px;
 
-  color: #ffc77b;
+  padding:
+    6px 12px;
 
+  border:
+    1px solid rgba(255, 199, 99, 0.35);
+
+  border-radius: 30px;
+
+  font-size: 10px;
+
+  color: #ffd17e;
+
+  background:
+    rgba(255, 166, 62, 0.08);
 }
 
 
 .start-content h1 {
 
   font-size:
-
     clamp(
-      36px,
-      10vw,
-      60px
+      38px,
+      11vw,
+      66px
     );
 
-  color: #fff3d4;
+  line-height: 1.25;
+
+  color: #fff6da;
 
   text-shadow:
-
-    0 0 10px #ffb142,
-    0 0 25px #ff7b00,
-    0 0 50px #d72b00;
-
+    0 0 8px white,
+    0 0 20px #ffc25d,
+    0 0 45px #ff7700,
+    0 0 90px #b82500;
 }
 
 
@@ -171,91 +243,152 @@ body {
 
   margin-top: 14px;
 
-  color: #ffd69b;
+  font-size: 14px;
 
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 
+  color: #ffdca3;
+}
+
+
+.lunar-date {
+
+  margin-top: 10px;
+
+  font-size: 12px;
+
+  color:
+    rgba(
+      255,
+      226,
+      176,
+      0.7
+    );
 }
 
 
 #start-btn {
 
-  margin-top: 45px;
+  position: relative;
+
+  overflow: hidden;
+
+  margin-top: 42px;
 
   padding:
+    16px 34px;
 
-    15px
-    32px;
+  border: 1px solid #ffe0a1;
 
   border-radius: 50px;
-
-  border:
-
-    1px solid
-    rgba(
-      255,
-      222,
-      155,
-      0.8
-    );
-
-  color: #3a1100;
-
-  background:
-
-    linear-gradient(
-      135deg,
-      #fff0b0,
-      #e69a28
-    );
 
   font-size: 17px;
 
   font-weight: 700;
 
-  box-shadow:
+  color: #5b1700;
 
-    0 0 15px
-    rgba(
-      255,
-      179,
-      71,
-      0.8
-    ),
+  cursor: pointer;
 
-    0 0 40px
-    rgba(
-      255,
-      92,
-      0,
-      0.35
+  background:
+    linear-gradient(
+      135deg,
+      #fff2bd,
+      #ffc768 45%,
+      #e88b22
     );
+
+  box-shadow:
+    0 0 15px rgba(255, 218, 135, 0.65),
+    0 0 35px rgba(255, 111, 0, 0.55);
+
+  animation:
+    startButtonPulse 2s ease-in-out infinite;
+}
+
+
+#start-btn::after {
+
+  content: "";
+
+  position: absolute;
+
+  top: -50%;
+
+  left: -100%;
+
+  width: 60%;
+
+  height: 200%;
+
+  transform:
+    rotate(25deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.8),
+      transparent
+    );
+
+  animation:
+    buttonShine 3s infinite;
+}
+
+
+@keyframes buttonShine {
+
+  0% {
+    left: -100%;
+  }
+
+  35%,
+  100% {
+    left: 150%;
+  }
+
+}
+
+
+@keyframes startButtonPulse {
+
+  50% {
+
+    transform:
+      scale(1.04);
+
+    box-shadow:
+      0 0 25px rgba(255, 218, 135, 0.9),
+      0 0 55px rgba(255, 111, 0, 0.75);
+
+  }
 
 }
 
 
 .start-tip {
 
-  margin-top: 12px;
+  margin-top: 14px;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
 
   color:
-
     rgba(
       255,
       255,
       255,
-      0.6
+      0.5
     );
-
-  font-size: 11px;
-
 }
 
 
 
-/* =========================
+/* =========================================================
    主场景
-========================= */
+========================================================= */
 
 #birthday-scene {
 
@@ -267,22 +400,46 @@ body {
 
   background: #000;
 
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity 1.5s ease;
 }
 
+
+#birthday-scene.active {
+
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+
+/* =========================================================
+   背景图片
+========================================================= */
 
 .background-image {
 
   position: absolute;
 
-  width: 100%;
-  height: 100%;
+  width: 112%;
+  height: 112%;
+
+  left: -6%;
+  top: -6%;
 
   object-fit: cover;
 
   object-position: center;
 
-  transform: scale(1.08);
+  transform:
+    scale(1.08);
 
+  will-change: transform;
 }
 
 
@@ -290,12 +447,10 @@ body {
 .background-image {
 
   animation:
-
     cinematicZoom
-    14s
+    16s
     ease-out
     forwards;
-
 }
 
 
@@ -304,16 +459,14 @@ body {
   from {
 
     transform:
-
-      scale(1.18);
+      scale(1.16);
 
   }
 
   to {
 
     transform:
-
-      scale(1);
+      scale(1.08);
 
   }
 
@@ -321,9 +474,28 @@ body {
 
 
 
-/* =========================
-   暗角
-========================= */
+/* =========================================================
+   画面叠层
+========================================================= */
+
+.scene-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+
+    linear-gradient(
+      to bottom,
+      rgba(20, 3, 0, 0.12),
+      transparent 35%,
+      rgba(20, 2, 0, 0.25)
+    );
+}
+
 
 .vignette {
 
@@ -331,56 +503,53 @@ body {
 
   inset: 0;
 
-  background:
+  pointer-events: none;
 
+  background:
     radial-gradient(
       circle,
-      transparent 45%,
-      rgba(0,0,0,0.55) 100%
+      transparent 35%,
+      rgba(0,0,0,0.66) 110%
     );
-
 }
 
 
 
-/* =========================
+/* =========================================================
    金色扫光
-========================= */
+========================================================= */
 
 .gold-light {
 
   position: absolute;
 
-  width: 180%;
+  width: 170%;
+  height: 22%;
 
-  height: 30%;
+  left: -35%;
+  top: -30%;
 
-  top: -20%;
-
-  left: -40%;
-
-  transform: rotate(-35deg);
+  transform:
+    rotate(-30deg);
 
   background:
-
     linear-gradient(
       90deg,
       transparent,
-      rgba(255,194,94,0.28),
+      rgba(255, 211, 126, 0.30),
       transparent
     );
 
   filter:
-
-    blur(18px);
+    blur(22px);
 
   animation:
-
     goldSweep
     8s
     linear
     infinite;
 
+  pointer-events: none;
 }
 
 
@@ -389,18 +558,16 @@ body {
   from {
 
     transform:
-
       translateY(-300px)
-      rotate(-35deg);
+      rotate(-30deg);
 
   }
 
   to {
 
     transform:
-
-      translateY(150vh)
-      rotate(-35deg);
+      translateY(160vh)
+      rotate(-30deg);
 
   }
 
@@ -408,28 +575,88 @@ body {
 
 
 
-/* =========================
+/* =========================================================
+   扫描线
+========================================================= */
+
+.scan-line {
+
+  position: absolute;
+
+  z-index: 3;
+
+  left: 0;
+
+  top: -10%;
+
+  width: 100%;
+
+  height: 2px;
+
+  opacity: 0.55;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ffd886,
+      white,
+      #ffd886,
+      transparent
+    );
+
+  box-shadow:
+    0 0 18px #ffa53c;
+
+  animation:
+    scanning
+    6s
+    linear
+    infinite;
+
+  pointer-events: none;
+}
+
+
+@keyframes scanning {
+
+  from {
+    top: -5%;
+  }
+
+  to {
+    top: 105%;
+  }
+
+}
+
+
+
+/* =========================================================
    主标题
-========================= */
+========================================================= */
 
 .main-message {
 
   position: absolute;
 
+  z-index: 10;
+
+  top: 6%;
+
+  left: 0;
+
   width: 100%;
 
-  top: 7%;
+  padding:
+    0 20px;
 
   text-align: center;
-
-  z-index: 5;
 
   opacity: 0;
 
   transform:
-
-    translateY(-30px);
-
+    translateY(-25px);
 }
 
 
@@ -437,11 +664,23 @@ body {
 .main-message {
 
   animation:
-
-    showMessage
-    1.5s
-    1.2s
+    mainMessageShow
+    1.4s
+    1s
     forwards;
+}
+
+
+@keyframes mainMessageShow {
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
 
 }
 
@@ -452,117 +691,77 @@ body {
 
   letter-spacing: 5px;
 
-  color: #ffd386;
-
+  color: #ffdb98;
 }
 
 
 .main-message h2 {
 
-  margin-top: 5px;
+  margin-top: 4px;
 
   font-size:
-
     clamp(
       30px,
       9vw,
-      54px
+      52px
     );
 
   color: white;
 
   text-shadow:
-
-    0 0 7px #fff,
-    0 0 15px #ffbd45,
-    0 0 35px #ff7600;
-
+    0 0 8px white,
+    0 0 18px #ffc458,
+    0 0 38px #ff7200;
 }
 
 
 .main-message p {
 
-  margin-top: 6px;
+  margin-top: 5px;
 
-  font-size: 13px;
+  font-size: 11px;
+
+  letter-spacing: 2px;
 
   color: #ffe0a9;
-
-  letter-spacing: 3px;
-
-}
-
-
-@keyframes showMessage {
-
-  to {
-
-    opacity: 1;
-
-    transform:
-
-      translateY(0);
-
-  }
-
 }
 
 
 
-/* =========================
+/* =========================================================
    HUD
-========================= */
+========================================================= */
 
 .hud {
 
   position: absolute;
 
-  padding:
+  z-index: 12;
 
-    8px
-    12px;
+  min-width: 85px;
+
+  padding:
+    8px 11px;
 
   border:
+    1px solid rgba(255, 207, 116, 0.6);
 
-    1px solid
-    rgba(
-      255,
-      194,
-      88,
-      0.7
-    );
+  border-radius: 7px;
 
   background:
-
-    rgba(
-      40,
-      10,
-      0,
-      0.35
-    );
+    rgba(55, 13, 0, 0.28);
 
   backdrop-filter:
-
-    blur(8px);
-
-  color: #ffe1a2;
-
-  font-size: 10px;
-
-  z-index: 5;
+    blur(9px);
 
   box-shadow:
-
-    0 0 12px
-    rgba(
-      255,
-      174,
-      55,
-      0.35
-    );
+    0 0 14px rgba(255, 160, 35, 0.2);
 
   opacity: 0;
 
+  color: #ffd58f;
+
+  font-size: 9px;
 }
 
 
@@ -572,37 +771,33 @@ body {
 
   margin-top: 3px;
 
-  font-size: 15px;
-
   color: white;
 
+  font-size: 14px;
 }
 
 
-.hud.top {
+.hud-top {
 
-  top: 22%;
+  top: 20%;
 
-  right: 5%;
-
+  right: 4%;
 }
 
 
-.hud.left {
+.hud-left {
 
-  top: 47%;
+  top: 45%;
 
-  left: 5%;
-
+  left: 4%;
 }
 
 
-.hud.right {
+.hud-right {
 
-  bottom: 27%;
+  right: 4%;
 
-  right: 5%;
-
+  bottom: 29%;
 }
 
 
@@ -610,12 +805,10 @@ body {
 .hud {
 
   animation:
-
     hudShow
-    1s
-    2.5s
+    0.9s
+    2.2s
     forwards;
-
 }
 
 
@@ -626,7 +819,6 @@ body {
     opacity: 0;
 
     transform:
-
       scale(0.7);
 
   }
@@ -636,7 +828,6 @@ body {
     opacity: 1;
 
     transform:
-
       scale(1);
 
   }
@@ -645,37 +836,38 @@ body {
 
 
 
-/* =========================
+/* =========================================================
    祥云
-========================= */
+========================================================= */
 
 .cloud {
 
   position: absolute;
 
-  z-index: 4;
+  z-index: 5;
+
+  left: -50%;
+
+  pointer-events: none;
 
   color:
-
     rgba(
       255,
-      212,
-      137,
-      0.45
+      219,
+      155,
+      0.28
     );
 
-  font-size: 80px;
-
   filter:
-
     blur(1px);
 
-  animation:
+  text-shadow:
+    0 0 20px rgba(255, 165, 55, 0.4);
 
+  animation:
     cloudMove
     linear
     infinite;
-
 }
 
 
@@ -683,42 +875,45 @@ body {
 
   top: 20%;
 
-  left: -30%;
+  font-size: 90px;
 
-  animation-duration: 18s;
-
+  animation-duration: 23s;
 }
 
 
 .cloud-2 {
 
-  top: 55%;
+  top: 52%;
 
-  left: -40%;
+  font-size: 120px;
 
-  animation-duration: 25s;
-
+  animation-duration: 30s;
 }
 
 
 .cloud-3 {
 
-  top: 75%;
+  top: 74%;
 
-  left: -50%;
+  font-size: 75px;
 
-  animation-duration: 30s;
-
+  animation-duration: 35s;
 }
 
 
 @keyframes cloudMove {
 
+  from {
+
+    transform:
+      translateX(0);
+
+  }
+
   to {
 
     transform:
-
-      translateX(160vw);
+      translateX(170vw);
 
   }
 
@@ -726,81 +921,41 @@ body {
 
 
 
-/* =========================
-   福星寿星
-========================= */
+/* =========================================================
+   福 / 寿按钮
+========================================================= */
 
 .god {
 
   position: absolute;
 
-  bottom: 13%;
+  z-index: 25;
 
-  z-index: 8;
+  bottom: 12%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: white;
 
   text-align: center;
 
+  cursor: pointer;
+
   opacity: 0;
-
-}
-
-
-.god-symbol {
-
-  width: 58px;
-  height: 58px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  font-size: 30px;
-
-  color: #7c1700;
-
-  background:
-
-    radial-gradient(
-      circle,
-      #fff3af,
-      #efaa36
-    );
-
-  box-shadow:
-
-    0 0 15px #ffb53e,
-    0 0 40px rgba(255, 71, 0, 0.7);
-
-}
-
-
-.god span {
-
-  display: block;
-
-  margin-top: 6px;
-
-  font-size: 10px;
-
-  color: #ffe2a4;
-
 }
 
 
 .blessing {
-
-  left: 8%;
-
+  left: 7%;
 }
 
 
 .longevity {
-
-  right: 8%;
-
+  right: 7%;
 }
 
 
@@ -808,12 +963,10 @@ body {
 .blessing {
 
   animation:
-
     godAppear
     1.2s
-    4s
+    3.3s
     forwards;
-
 }
 
 
@@ -821,12 +974,10 @@ body {
 .longevity {
 
   animation:
-
     godAppear
     1.2s
-    4.6s
+    3.8s
     forwards;
-
 }
 
 
@@ -837,18 +988,16 @@ body {
     opacity: 0;
 
     transform:
-
-      translateY(50px)
+      translateY(35px)
       scale(0.5);
 
   }
 
-  70% {
+  65% {
 
     transform:
-
-      translateY(-10px)
-      scale(1.15);
+      translateY(-8px)
+      scale(1.12);
 
   }
 
@@ -857,7 +1006,6 @@ body {
     opacity: 1;
 
     transform:
-
       translateY(0)
       scale(1);
 
@@ -866,78 +1014,205 @@ body {
 }
 
 
+.god-ring {
 
-/* =========================
+  position: absolute;
+
+  left: 50%;
+  top: 29px;
+
+  width: 74px;
+  height: 74px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border:
+    1px solid rgba(255, 217, 134, 0.45);
+
+  border-radius: 50%;
+
+  animation:
+    godRing
+    2.4s
+    linear
+    infinite;
+}
+
+
+@keyframes godRing {
+
+  0% {
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.8);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.6);
+
+  }
+
+}
+
+
+.god-symbol {
+
+  position: relative;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+
+  border:
+    1px solid #ffe49b;
+
+  border-radius: 50%;
+
+  font-family:
+    "STKaiti",
+    "KaiTi",
+    serif;
+
+  font-size: 31px;
+
+  font-weight: 700;
+
+  color: #7c1600;
+
+  background:
+    radial-gradient(
+      circle at 40% 30%,
+      #fff9ce,
+      #ffd268 45%,
+      #db801d 100%
+    );
+
+  box-shadow:
+    0 0 12px #ffd370,
+    0 0 30px rgba(255, 117, 0, 0.7);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.god span {
+
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  color: #ffe3ae;
+
+  text-shadow:
+    0 0 8px black;
+}
+
+
+.god:active
+.god-symbol {
+
+  transform:
+    scale(0.78);
+
+  box-shadow:
+    0 0 30px white,
+    0 0 65px #ffb021;
+}
+
+
+
+/* =========================================================
    蛋糕按钮
-========================= */
+========================================================= */
 
 #cake-btn {
 
   position: absolute;
 
-  bottom: 5%;
+  z-index: 25;
 
   left: 50%;
+  bottom: 4%;
 
   transform:
-
     translateX(-50%);
 
-  z-index: 10;
-
-  border: none;
-
-  border-radius: 40px;
+  min-width: 175px;
 
   padding:
+    12px 22px;
 
-    11px
-    20px;
+  border:
+    1px solid rgba(255, 238, 185, 0.9);
 
-  color: #4b1700;
+  border-radius: 50px;
+
+  outline: none;
+
+  color: #591700;
+
+  font-size: 13px;
 
   font-weight: 700;
 
-  background:
+  cursor: pointer;
 
+  background:
     linear-gradient(
       135deg,
-      #fff0ae,
-      #eda031
+      #fff0b2,
+      #ffc65f,
+      #e68b22
     );
 
   box-shadow:
-
-    0 0 20px
-    rgba(
-      255,
-      177,
-      63,
-      0.8
-    );
+    0 0 20px rgba(255, 189, 72, 0.7);
 
   animation:
-
-    buttonPulse
-    2s
+    cakePulse
+    1.8s
+    ease-in-out
     infinite;
-
 }
 
 
-@keyframes buttonPulse {
+#cake-btn:active {
+
+  transform:
+    translateX(-50%)
+    scale(0.92);
+}
+
+
+@keyframes cakePulse {
 
   50% {
 
     box-shadow:
-
-      0 0 40px
-      rgba(
-        255,
-        126,
-        0,
-        1
-      );
+      0 0 30px rgba(255, 213, 120, 1),
+      0 0 55px rgba(255, 99, 0, 0.7);
 
   }
 
@@ -945,9 +1220,426 @@ body {
 
 
 
-/* =========================
-   最终祝福
-========================= */
+/* =========================================================
+   普通粒子
+========================================================= */
+
+#particles,
+#blessing-effect-layer {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+.particle {
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: #fff1b3;
+
+  box-shadow:
+    0 0 8px #ffc15a,
+    0 0 18px #ff8a22;
+}
+
+
+
+/* =========================================================
+   福字雨
+========================================================= */
+
+.fu-rain {
+
+  position: absolute;
+
+  top: -100px;
+
+  font-family:
+    "STKaiti",
+    serif;
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+  color: #ffd664;
+
+  text-shadow:
+    0 0 8px white,
+    0 0 18px #ff9700;
+
+  animation:
+    fuRainFall
+    linear
+    forwards;
+}
+
+
+@keyframes fuRainFall {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translateY(-50px)
+      rotate(0deg)
+      scale(0.6);
+
+  }
+
+  15% {
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      translateY(120vh)
+      rotate(380deg)
+      scale(1.1);
+
+  }
+
+}
+
+
+
+/* =========================================================
+   桃花
+========================================================= */
+
+.peach-petal {
+
+  position: absolute;
+
+  top: -60px;
+
+  font-size: 22px;
+
+  filter:
+    drop-shadow(
+      0 0 5px
+      rgba(255,190,190,0.8)
+    );
+
+  animation:
+    petalFall
+    linear
+    forwards;
+}
+
+
+@keyframes petalFall {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translateY(-50px)
+      translateX(0)
+      rotate(0deg);
+
+  }
+
+  15% {
+
+    opacity: 1;
+
+  }
+
+  50% {
+
+    transform:
+      translateY(55vh)
+      translateX(40px)
+      rotate(180deg);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+      translateY(115vh)
+      translateX(-35px)
+      rotate(400deg);
+
+  }
+
+}
+
+
+
+/* =========================================================
+   福寿全屏特效
+========================================================= */
+
+#blessing-popup {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 300;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 25px;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  background:
+    rgba(30, 4, 0, 0.72);
+
+  backdrop-filter:
+    blur(9px);
+
+  transition:
+    opacity 0.55s ease;
+}
+
+
+#blessing-popup.show {
+
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+#blessing-popup.fu-mode {
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(130, 54, 0, 0.65),
+      rgba(20, 2, 0, 0.86)
+    );
+}
+
+
+#blessing-popup.shou-mode {
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(130, 15, 5, 0.62),
+      rgba(25, 1, 1, 0.9)
+    );
+}
+
+
+.popup-rays {
+
+  position: absolute;
+
+  width: 150vw;
+  height: 150vw;
+
+  border-radius: 50%;
+
+  opacity: 0.18;
+
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      #ffd365 0deg 8deg,
+      transparent 8deg 18deg
+    );
+
+  animation:
+    raysSpin
+    15s
+    linear
+    infinite;
+}
+
+
+@keyframes raysSpin {
+
+  to {
+
+    transform:
+      rotate(360deg);
+
+  }
+
+}
+
+
+.popup-card {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: min(84vw, 390px);
+
+  padding:
+    32px 20px;
+
+  text-align: center;
+
+  border:
+    1px solid rgba(255, 220, 145, 0.65);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(100, 27, 3, 0.82),
+      rgba(28, 5, 1, 0.92)
+    );
+
+  box-shadow:
+    0 0 35px rgba(255, 138, 20, 0.4);
+
+  transform:
+    scale(0.65)
+    translateY(25px);
+
+  opacity: 0;
+
+  transition:
+    0.7s
+    cubic-bezier(
+      .2,
+      1.4,
+      .4,
+      1
+    );
+}
+
+
+#blessing-popup.show
+.popup-card {
+
+  opacity: 1;
+
+  transform:
+    scale(1)
+    translateY(0);
+}
+
+
+.popup-symbol {
+
+  font-family:
+    "STKaiti",
+    serif;
+
+  font-size: 115px;
+
+  line-height: 1;
+
+  color: #ffe28a;
+
+  text-shadow:
+    0 0 10px white,
+    0 0 30px #ffb32c,
+    0 0 70px #ff6900;
+
+  animation:
+    popupSymbolGlow
+    1.5s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes popupSymbolGlow {
+
+  50% {
+
+    transform:
+      scale(1.09);
+
+    filter:
+      brightness(1.25);
+
+  }
+
+}
+
+
+.popup-mini {
+
+  margin-top: 8px;
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+
+  color: #ffca72;
+}
+
+
+.popup-card h2 {
+
+  margin-top: 12px;
+
+  font-size: 28px;
+
+  color: white;
+
+  text-shadow:
+    0 0 14px #ff9d24;
+}
+
+
+.popup-card p {
+
+  margin-top: 14px;
+
+  line-height: 1.9;
+
+  font-size: 15px;
+
+  color: #ffe0aa;
+}
+
+
+.popup-hint {
+
+  margin-top: 24px;
+
+  font-size: 9px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    );
+}
+
+
+
+/* =========================================================
+   最终许愿层
+========================================================= */
 
 #wish-panel {
 
@@ -955,35 +1647,33 @@ body {
 
   inset: 0;
 
-  z-index: 50;
+  z-index: 250;
 
   display: flex;
 
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
-  background:
+  overflow: hidden;
 
-    rgba(
-      20,
-      3,
-      0,
-      0.75
-    );
-
-  backdrop-filter:
-
-    blur(10px);
+  padding: 25px;
 
   opacity: 0;
 
   pointer-events: none;
 
+  background:
+    radial-gradient(
+      circle,
+      rgba(132, 40, 0, 0.72),
+      rgba(20, 2, 0, 0.92)
+    );
+
+  backdrop-filter:
+    blur(10px);
+
   transition:
-
-    opacity
-    1s;
-
+    opacity 0.8s ease;
 }
 
 
@@ -992,127 +1682,239 @@ body {
   opacity: 1;
 
   pointer-events: auto;
+}
 
+
+.wish-rays {
+
+  position: absolute;
+
+  width: 160vw;
+  height: 160vw;
+
+  border-radius: 50%;
+
+  opacity: 0.13;
+
+  background:
+    repeating-conic-gradient(
+      #ffd66e 0deg 7deg,
+      transparent 7deg 16deg
+    );
+
+  animation:
+    raysSpin
+    17s
+    linear
+    infinite;
 }
 
 
 .wish-inner {
 
-  width: 82%;
+  position: relative;
+
+  z-index: 2;
+
+  width: min(86vw, 400px);
 
   padding:
+    30px 20px;
 
-    35px
-    25px;
+  border:
+    1px solid rgba(255, 225, 159, 0.72);
+
+  border-radius: 18px;
 
   text-align: center;
 
-  border:
-
-    1px solid
-    rgba(
-      255,
-      206,
-      116,
-      0.8
-    );
-
   background:
-
     linear-gradient(
       145deg,
-      rgba(89,19,0,0.8),
-      rgba(18,3,0,0.9)
+      rgba(103, 26, 1, 0.86),
+      rgba(30, 4, 0, 0.94)
     );
 
   box-shadow:
+    0 0 50px rgba(255, 119, 0, 0.52);
 
-    0 0 40px
-    rgba(
-      255,
-      103,
-      0,
-      0.45
-    );
+  transform:
+    scale(0.7);
 
+  transition:
+    transform 0.8s
+    cubic-bezier(.2,1.4,.4,1);
+}
+
+
+#wish-panel.show
+.wish-inner {
+
+  transform:
+    scale(1);
 }
 
 
 .wish-inner small {
 
-  color: #ffc467;
+  color: #ffd075;
 
+  letter-spacing: 2px;
+
+  font-size: 9px;
+}
+
+
+.wish-symbol {
+
+  margin-top: 12px;
+
+  font-family:
+    "STKaiti",
+    serif;
+
+  font-size: 78px;
+
+  line-height: 1;
+
+  color: #ffe394;
+
+  text-shadow:
+    0 0 15px #ffcb54,
+    0 0 40px #ff7200;
 }
 
 
 .wish-inner h2 {
 
-  margin-top: 12px;
+  margin-top: 4px;
 
-  font-size: 42px;
+  font-size: 33px;
 
-  color: #fff4cf;
+  color: #fff1c6;
 
   text-shadow:
-
-    0 0 15px
-    #ffad28;
-
+    0 0 15px #ffae38;
 }
 
 
 .wish-inner p {
 
-  margin-top: 20px;
+  margin-top: 18px;
 
   line-height: 2;
 
-  color: #ffe1ad;
+  font-size: 14px;
 
+  color: #ffe3b2;
+}
+
+
+.wish-date {
+
+  margin-top: 16px;
+
+  color: #ffc55d;
+
+  font-size: 12px;
+}
+
+
+.wish-tip {
+
+  margin-top: 20px;
+
+  font-size: 9px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.43
+    );
 }
 
 
 
-/* =========================
-   粒子
-========================= */
-
-.particle {
-
-  position: absolute;
-
-  width: 4px;
-  height: 4px;
-
-  border-radius: 50%;
-
-  background: white;
-
-  box-shadow:
-
-    0 0 8px #ffce78;
-
-  pointer-events: none;
-
-}
-
-
-
-/* =========================
-   烟花 canvas
-========================= */
+/* =========================================================
+   烟花
+========================================================= */
 
 #fireworks {
 
-  position: absolute;
+  position: fixed;
 
   inset: 0;
+
+  z-index: 400;
 
   width: 100%;
   height: 100%;
 
   pointer-events: none;
+}
 
-  z-index: 40;
+
+
+/* =========================================================
+   小屏优化
+========================================================= */
+
+@media (
+  max-height: 700px
+) {
+
+  .main-message {
+
+    top: 4%;
+
+  }
+
+  .god {
+
+    bottom: 11%;
+
+  }
+
+  #cake-btn {
+
+    bottom: 2.5%;
+
+  }
+
+  .god-symbol {
+
+    width: 52px;
+    height: 52px;
+
+    font-size: 27px;
+
+  }
+
+}
+
+
+
+/* =========================================================
+   减少动画
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+  }
 
 }
