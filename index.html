@@ -6,7 +6,7 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
   >
 
   <meta name="theme-color" content="#2a0800">
@@ -44,7 +44,7 @@
         奶奶生日快乐
       </h1>
 
-      <p>
+      <p class="start-blessing">
         福星高照 · 寿比南山
       </p>
 
@@ -53,11 +53,7 @@
       </div>
 
       <button id="start-btn">
-
-        <span>
-          ✦ 开启寿宴 ✦
-        </span>
-
+        ✦ 开启寿宴 ✦
       </button>
 
       <div class="start-tip">
@@ -77,19 +73,23 @@
   <main id="birthday-scene">
 
 
-    <!-- 背景图片 -->
+    <!-- =================================================
+         背景
+    ================================================== -->
 
-    <img
-      id="backgroundImage"
-      src="images/grandma-birthday.png"
-      class="background-image"
-      alt="奶奶生日快乐"
-    >
+    <div class="background-area">
 
+      <div class="background-blur"></div>
 
-    <!-- 背景渐变 -->
+      <img
+        id="backgroundImage"
+        src="images/grandma-birthday.png"
+        class="background-image"
+        alt="奶奶生日快乐"
+      >
 
-    <div class="scene-overlay"></div>
+    </div>
+
 
 
     <!-- 暗角 -->
@@ -97,9 +97,11 @@
     <div class="vignette"></div>
 
 
+
     <!-- 金色扫光 -->
 
     <div class="gold-light"></div>
+
 
 
     <!-- 扫描线 -->
@@ -112,8 +114,6 @@
          HUD
     ================================================== -->
 
-
-
     <div class="hud hud-right">
 
       <span>
@@ -124,25 +124,6 @@
         奶奶
       </strong>
 
-    </div>
-
-
-
-
-    <!-- =================================================
-         祥云
-    ================================================== -->
-
-    <div class="cloud cloud-1">
-      ☁
-    </div>
-
-    <div class="cloud cloud-2">
-      ☁
-    </div>
-
-    <div class="cloud cloud-3">
-      ☁
     </div>
 
 
@@ -196,13 +177,13 @@
 
 
     <!-- =================================================
-         蛋糕按钮
+         蛋糕许愿
     ================================================== -->
 
     <button id="cake-btn">
 
       <span class="cake-icon">
-       🎂
+        🎂
       </span>
 
       点击按钮许愿
@@ -212,15 +193,23 @@
 
 
     <!-- =================================================
-         福 / 寿 特效层
+         普通粒子
     ================================================== -->
 
-    <div id="blessing-effect-layer"></div>
+    <div id="particles"></div>
 
 
 
     <!-- =================================================
-         福寿祝福弹层
+         福寿特效层
+    ================================================== -->
+
+    <div id="effect-layer"></div>
+
+
+
+    <!-- =================================================
+         福寿弹层
     ================================================== -->
 
     <div id="blessing-popup">
@@ -236,10 +225,7 @@
           福
         </div>
 
-        <div
-          id="popup-mini"
-          class="popup-mini"
-        >
+        <div class="popup-mini">
           FUSHOU SYSTEM
         </div>
 
@@ -269,7 +255,7 @@
 
       <div class="wish-rays"></div>
 
-      <div class="wish-inner">
+      <div class="wish-card">
 
         <small>
           ✦ 福寿系统已满载 ✦
@@ -288,7 +274,7 @@
         </h2>
 
         <p>
-          愿奶奶身体健康、岁岁平安，
+          愿奶奶身体健康、岁岁平安
           <br>
           天天开心、福寿绵长 ❤️
         </p>
@@ -307,12 +293,9 @@
 
 
 
-    <!-- 普通金色粒子 -->
-
-    <div id="particles"></div>
-
-
-    <!-- 烟花 -->
+    <!-- =================================================
+         烟花
+    ================================================== -->
 
     <canvas id="fireworks"></canvas>
 
