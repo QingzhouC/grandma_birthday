@@ -1261,23 +1261,23 @@ function handleOrientation(
 
   const x =
     Math.max(
-      -8,
+      -40,
       Math.min(
-        8,
-        gamma / 5
+        40,
+        gamma * 2
       )
     );
 
 
   const y =
     Math.max(
-      -6,
+      -30,
       Math.min(
-        6,
+        30,
         (
           beta - 45
         )
-        / 8
+        * 1.2
       )
     );
 
