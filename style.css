@@ -8,7 +8,6 @@
   box-sizing: border-box;
 }
 
-
 html,
 body {
   width: 100%;
@@ -16,25 +15,21 @@ body {
   overflow: hidden;
 }
 
-
 html {
   background: #090100;
 }
-
 
 body {
   position: fixed;
   inset: 0;
 
   width: 100%;
-
   height: 100vh;
   height: 100dvh;
 
   overflow: hidden;
 
   background: #090100;
-
   color: white;
 
   font-family:
@@ -49,15 +44,13 @@ body {
   -webkit-user-select: none;
 }
 
-
 button {
   font-family: inherit;
 }
 
 
-
 /* =========================================================
-   启动页面
+   启动页
 ========================================================= */
 
 #start-screen {
@@ -67,14 +60,12 @@ button {
   z-index: 500;
 
   width: 100%;
-
   height: 100vh;
   height: 100dvh;
 
   display: flex;
-
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   overflow: hidden;
 
@@ -82,10 +73,10 @@ button {
 
   background:
     radial-gradient(
-      circle at 50% 45%,
-      #7b2509 0%,
+      circle at 50% 44%,
+      #7a2409 0%,
       #3a1004 35%,
-      #160400 65%,
+      #150400 66%,
       #050000 100%
     );
 
@@ -95,53 +86,41 @@ button {
     filter 1.2s ease;
 }
 
-
 #start-screen.hide {
   opacity: 0;
 
-  transform:
-    scale(1.08);
+  transform: scale(1.08);
 
-  filter:
-    blur(10px);
+  filter: blur(10px);
 
   pointer-events: none;
 }
 
 
-
-/* =========================================================
-   启动背景网格
-========================================================= */
+/* 网格 */
 
 .start-grid {
   position: absolute;
   inset: 0;
 
-  opacity: 0.16;
+  opacity: 0.15;
 
   background-image:
-
     linear-gradient(
-      rgba(255, 199, 103, 0.12) 1px,
+      rgba(255, 199, 103, 0.11) 1px,
       transparent 1px
     ),
-
     linear-gradient(
       90deg,
       rgba(255, 199, 103, 0.08) 1px,
       transparent 1px
     );
 
-  background-size:
-    38px 38px;
+  background-size: 38px 38px;
 }
 
 
-
-/* =========================================================
-   启动光晕
-========================================================= */
+/* 光晕 */
 
 .start-glow {
   position: absolute;
@@ -149,15 +128,15 @@ button {
   width: 105vw;
   height: 105vw;
 
-  max-width: 750px;
-  max-height: 750px;
+  max-width: 760px;
+  max-height: 760px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(255, 220, 135, 0.28),
+      rgba(255, 223, 145, 0.28),
       rgba(255, 118, 20, 0.12) 40%,
       transparent 70%
     );
@@ -166,31 +145,21 @@ button {
     startGlow 3s ease-in-out infinite;
 }
 
-
 @keyframes startGlow {
-
   0%,
   100% {
     opacity: 0.55;
-
-    transform:
-      scale(0.88);
+    transform: scale(0.88);
   }
 
   50% {
     opacity: 1;
-
-    transform:
-      scale(1.12);
+    transform: scale(1.1);
   }
-
 }
 
 
-
-/* =========================================================
-   启动内容
-========================================================= */
+/* 内容 */
 
 .start-content {
   position: relative;
@@ -198,13 +167,10 @@ button {
   z-index: 5;
 
   width: 88%;
-
   max-width: 460px;
 
-  padding:
-    30px 20px;
+  padding: 30px 20px;
 }
-
 
 .system-title {
   margin-bottom: 12px;
@@ -212,22 +178,18 @@ button {
   color: #ffd484;
 
   font-size: 10px;
-
   letter-spacing: 5px;
 }
 
-
 .system-status {
   display: inline-flex;
-
   align-items: center;
 
   gap: 7px;
 
   margin-bottom: 20px;
 
-  padding:
-    6px 12px;
+  padding: 6px 12px;
 
   border:
     1px solid
@@ -235,14 +197,13 @@ button {
 
   border-radius: 30px;
 
-  background:
-    rgba(255, 173, 58, 0.08);
-
   color: #ffd992;
 
   font-size: 10px;
-}
 
+  background:
+    rgba(255, 173, 58, 0.08);
+}
 
 .status-dot {
   width: 6px;
@@ -259,15 +220,11 @@ button {
     statusBlink 1.4s infinite;
 }
 
-
 @keyframes statusBlink {
-
   50% {
     opacity: 0.35;
   }
-
 }
-
 
 .start-content h1 {
   font-family:
@@ -294,32 +251,31 @@ button {
     0 0 80px #a91e00;
 }
 
-
 .start-blessing {
   margin-top: 16px;
 
   color: #ffe0aa;
 
   font-size: 14px;
-
   letter-spacing: 4px;
 }
-
 
 .lunar-date {
   margin-top: 10px;
 
   color:
-    rgba(255, 225, 173, 0.68);
+    rgba(
+      255,
+      225,
+      173,
+      0.7
+    );
 
   font-size: 12px;
 }
 
 
-
-/* =========================================================
-   开始按钮
-========================================================= */
+/* 开启按钮 */
 
 #start-btn {
   position: relative;
@@ -328,8 +284,7 @@ button {
 
   margin-top: 42px;
 
-  padding:
-    16px 36px;
+  padding: 16px 36px;
 
   border:
     1px solid #ffe3aa;
@@ -349,7 +304,6 @@ button {
   color: #5c1600;
 
   font-size: 17px;
-
   font-weight: 700;
 
   cursor: pointer;
@@ -362,12 +316,8 @@ button {
     rgba(255, 103, 0, 0.5);
 
   animation:
-    startPulse
-    2s
-    ease-in-out
-    infinite;
+    startPulse 2s ease-in-out infinite;
 }
-
 
 #start-btn::after {
   content: "";
@@ -380,8 +330,7 @@ button {
   width: 55%;
   height: 200%;
 
-  transform:
-    rotate(25deg);
+  transform: rotate(25deg);
 
   background:
     linear-gradient(
@@ -392,14 +341,10 @@ button {
     );
 
   animation:
-    buttonShine
-    3s
-    infinite;
+    buttonShine 3s infinite;
 }
 
-
 @keyframes buttonShine {
-
   0% {
     left: -100%;
   }
@@ -408,15 +353,11 @@ button {
   100% {
     left: 150%;
   }
-
 }
 
-
 @keyframes startPulse {
-
   50% {
-    transform:
-      scale(1.04);
+    transform: scale(1.04);
 
     box-shadow:
       0 0 25px
@@ -425,9 +366,7 @@ button {
       0 0 55px
       rgba(255, 110, 0, 0.75);
   }
-
 }
-
 
 .start-tip {
   margin-top: 13px;
@@ -439,9 +378,8 @@ button {
 }
 
 
-
 /* =========================================================
-   主生日场景
+   主场景
 ========================================================= */
 
 #birthday-scene {
@@ -451,7 +389,6 @@ button {
   z-index: 1;
 
   width: 100%;
-
   height: 100vh;
   height: 100dvh;
 
@@ -467,7 +404,6 @@ button {
     opacity 1.3s ease;
 }
 
-
 #birthday-scene.active {
   opacity: 1;
 
@@ -475,9 +411,8 @@ button {
 }
 
 
-
 /* =========================================================
-   背景区域
+   背景
 ========================================================= */
 
 .background-area {
@@ -490,16 +425,12 @@ button {
 }
 
 
-
-/* =========================================================
-   模糊背景
-   用同一张图片填满空出来的位置
-========================================================= */
+/* 模糊背景填边 */
 
 .background-blur {
   position: absolute;
 
-  inset: -30px;
+  inset: -35px;
 
   z-index: 0;
 
@@ -507,27 +438,21 @@ button {
     url("images/grandma-birthday.png");
 
   background-size: cover;
-
   background-position: center;
 
   filter:
     blur(28px)
-    brightness(0.4)
-    saturate(1.2);
+    brightness(0.36)
+    saturate(1.15);
 
   transform:
-    scale(1.15);
+    scale(1.16);
 
-  opacity: 0.85;
+  opacity: 0.88;
 }
 
 
-
-/* =========================================================
-   真正背景图片
-   !!! 最关键 !!!
-   contain = 永远完整显示
-========================================================= */
+/* 完整主图 */
 
 .background-image {
   position: absolute;
@@ -541,13 +466,12 @@ button {
   height: 100%;
 
   object-fit: contain;
-
-  object-position: center center;
-
-  transform: none;
+  object-position: center;
 
   max-width: none;
   max-height: none;
+
+  transform: none;
 
   filter:
     saturate(1.04)
@@ -555,9 +479,8 @@ button {
 }
 
 
-
 /* =========================================================
-   暗角
+   画面效果
 ========================================================= */
 
 .vignette {
@@ -571,17 +494,11 @@ button {
   background:
     radial-gradient(
       ellipse at center,
-      transparent 45%,
-      rgba(0,0,0,0.12) 72%,
-      rgba(0,0,0,0.38) 110%
+      transparent 44%,
+      rgba(0,0,0,0.1) 72%,
+      rgba(0,0,0,0.36) 110%
     );
 }
-
-
-
-/* =========================================================
-   金色扫光
-========================================================= */
 
 .gold-light {
   position: absolute;
@@ -589,10 +506,12 @@ button {
   z-index: 4;
 
   width: 180%;
-  height: 25%;
+  height: 24%;
 
   left: -40%;
   top: -30%;
+
+  pointer-events: none;
 
   background:
     linear-gradient(
@@ -602,21 +521,13 @@ button {
       transparent
     );
 
-  filter:
-    blur(20px);
-
-  pointer-events: none;
+  filter: blur(20px);
 
   animation:
-    goldSweep
-    8s
-    linear
-    infinite;
+    goldSweep 8s linear infinite;
 }
 
-
 @keyframes goldSweep {
-
   from {
     transform:
       translateY(-300px)
@@ -628,14 +539,7 @@ button {
       translateY(160vh)
       rotate(-30deg);
   }
-
 }
-
-
-
-/* =========================================================
-   扫描线
-========================================================= */
 
 .scan-line {
   position: absolute;
@@ -648,7 +552,9 @@ button {
   width: 100%;
   height: 2px;
 
-  opacity: 0.4;
+  opacity: 0.38;
+
+  pointer-events: none;
 
   background:
     linear-gradient(
@@ -663,18 +569,11 @@ button {
   box-shadow:
     0 0 18px #ffa02e;
 
-  pointer-events: none;
-
   animation:
-    scanMove
-    7s
-    linear
-    infinite;
+    scanMove 7s linear infinite;
 }
 
-
 @keyframes scanMove {
-
   from {
     top: -5%;
   }
@@ -682,13 +581,11 @@ button {
   to {
     top: 105%;
   }
-
 }
 
 
-
 /* =========================================================
-   主标题
+   顶部祝福
 ========================================================= */
 
 .main-message {
@@ -706,8 +603,7 @@ button {
 
   width: 100%;
 
-  padding:
-    0 18px;
+  padding: 0 18px;
 
   text-align: center;
 
@@ -716,7 +612,6 @@ button {
   transform:
     translateY(-20px);
 }
-
 
 #birthday-scene.active
 .main-message {
@@ -727,27 +622,21 @@ button {
     forwards;
 }
 
-
 @keyframes messageShow {
-
   to {
     opacity: 1;
 
     transform:
       translateY(0);
   }
-
 }
-
 
 .main-message small {
-  font-size: 8px;
-
-  letter-spacing: 5px;
-
   color: #ffd88c;
-}
 
+  font-size: 8px;
+  letter-spacing: 5px;
+}
 
 .main-message h2 {
   margin-top: 3px;
@@ -772,17 +661,14 @@ button {
     0 0 34px #ff7200;
 }
 
-
 .main-message p {
   margin-top: 5px;
 
   color: #ffe0aa;
 
   font-size: 10px;
-
   letter-spacing: 1px;
 }
-
 
 
 /* =========================================================
@@ -796,8 +682,7 @@ button {
 
   min-width: 82px;
 
-  padding:
-    8px 10px;
+  padding: 8px 10px;
 
   border:
     1px solid
@@ -808,11 +693,8 @@ button {
   background:
     rgba(48, 10, 0, 0.38);
 
-  backdrop-filter:
-    blur(8px);
-
-  -webkit-backdrop-filter:
-    blur(8px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   color: #ffd797;
 
@@ -825,7 +707,6 @@ button {
     rgba(255, 163, 46, 0.25);
 }
 
-
 .hud strong {
   display: block;
 
@@ -836,24 +717,20 @@ button {
   font-size: 13px;
 }
 
-
 .hud-top {
   right: 4%;
   top: 19%;
 }
-
 
 .hud-left {
   left: 4%;
   top: 43%;
 }
 
-
 .hud-right {
   right: 4%;
   bottom: 28%;
 }
-
 
 #birthday-scene.active
 .hud {
@@ -864,25 +741,17 @@ button {
     forwards;
 }
 
-
 @keyframes hudShow {
-
   from {
     opacity: 0;
-
-    transform:
-      scale(0.7);
+    transform: scale(0.7);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      scale(1);
+    transform: scale(1);
   }
-
 }
-
 
 
 /* =========================================================
@@ -892,7 +761,7 @@ button {
 .god {
   position: absolute;
 
-  z-index: 35;
+  z-index: 80;
 
   bottom:
     calc(
@@ -901,7 +770,6 @@ button {
     );
 
   border: none;
-
   outline: none;
 
   background: transparent;
@@ -918,16 +786,13 @@ button {
   -webkit-appearance: none;
 }
 
-
 .blessing {
   left: 8%;
 }
 
-
 .longevity {
   right: 8%;
 }
-
 
 #birthday-scene.active
 .blessing {
@@ -938,7 +803,6 @@ button {
     forwards;
 }
 
-
 #birthday-scene.active
 .longevity {
   animation:
@@ -948,9 +812,7 @@ button {
     forwards;
 }
 
-
 @keyframes godAppear {
-
   0% {
     opacity: 0;
 
@@ -974,14 +836,10 @@ button {
       translateY(0)
       scale(1);
   }
-
 }
 
 
-
-/* =========================================================
-   福寿光环
-========================================================= */
+/* 光圈 */
 
 .god-ring {
   position: absolute;
@@ -1002,14 +860,10 @@ button {
     translate(-50%, -50%);
 
   animation:
-    ringPulse
-    2.2s
-    infinite;
+    ringPulse 2.2s infinite;
 }
 
-
 @keyframes ringPulse {
-
   0% {
     opacity: 0.9;
 
@@ -1025,14 +879,10 @@ button {
       translate(-50%, -50%)
       scale(1.65);
   }
-
 }
 
 
-
-/* =========================================================
-   福寿按钮主体
-========================================================= */
+/* 福寿圆形按钮 */
 
 .god-symbol {
   position: relative;
@@ -1041,9 +891,8 @@ button {
   height: 64px;
 
   display: flex;
-
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   margin: auto;
 
@@ -1068,7 +917,6 @@ button {
     serif;
 
   font-size: 32px;
-
   font-weight: 700;
 
   box-shadow:
@@ -1079,7 +927,6 @@ button {
   transition:
     transform 0.18s ease;
 }
-
 
 .god span {
   display: block;
@@ -1094,13 +941,10 @@ button {
     0 0 7px black;
 }
 
-
 .god:active
 .god-symbol {
-  transform:
-    scale(0.78);
+  transform: scale(0.78);
 }
-
 
 
 /* =========================================================
@@ -1110,7 +954,7 @@ button {
 #cake-btn {
   position: absolute;
 
-  z-index: 36;
+  z-index: 90;
 
   left: 50%;
 
@@ -1125,8 +969,7 @@ button {
 
   min-width: 200px;
 
-  padding:
-    13px 24px;
+  padding: 13px 24px;
 
   border:
     1px solid #fff0c3;
@@ -1149,7 +992,6 @@ button {
   color: #5b1600;
 
   font-size: 14px;
-
   font-weight: 700;
 
   cursor: pointer;
@@ -1159,12 +1001,8 @@ button {
     rgba(255, 190, 75, 0.78);
 
   animation:
-    cakePulse
-    1.8s
-    ease-in-out
-    infinite;
+    cakePulse 1.8s ease-in-out infinite;
 }
-
 
 #cake-btn:active {
   transform:
@@ -1172,37 +1010,30 @@ button {
     scale(0.92);
 }
 
-
 @keyframes cakePulse {
-
   50% {
     box-shadow:
       0 0 32px #ffd57e,
       0 0 58px
       rgba(255, 92, 0, 0.65);
   }
-
 }
-
 
 
 /* =========================================================
    普通粒子
 ========================================================= */
 
-#particles,
-#effect-layer {
+#particles {
   position: absolute;
-
   inset: 0;
 
-  z-index: 30;
+  z-index: 25;
 
   overflow: hidden;
 
   pointer-events: none;
 }
-
 
 .particle {
   position: absolute;
@@ -1217,6 +1048,21 @@ button {
 }
 
 
+/* =========================================================
+   福寿特效层
+========================================================= */
+
+#effect-layer {
+  position: fixed;
+  inset: 0;
+
+  z-index: 180;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
 
 /* =========================================================
    福字雨
@@ -1225,7 +1071,11 @@ button {
 .fu-rain {
   position: absolute;
 
-  top: -60px;
+  top: -70px;
+
+  z-index: 181;
+
+  color: #ffd85a;
 
   font-family:
     "STKaiti",
@@ -1234,11 +1084,10 @@ button {
 
   font-weight: 700;
 
-  color: #ffd764;
-
   text-shadow:
     0 0 7px white,
-    0 0 18px #ff9700;
+    0 0 17px #ffc63d,
+    0 0 30px #ff7a00;
 
   animation:
     fuFall
@@ -1246,46 +1095,46 @@ button {
     forwards;
 }
 
-
 @keyframes fuFall {
-
-  from {
+  0% {
     opacity: 0;
 
     transform:
-      translateY(-60px)
-      rotate(0deg);
+      translateY(-70px)
+      rotate(0deg)
+      scale(0.65);
   }
 
-  15% {
+  12% {
     opacity: 1;
   }
 
-  to {
+  100% {
     opacity: 0;
 
     transform:
       translateY(115dvh)
-      rotate(380deg);
+      rotate(400deg)
+      scale(1.12);
   }
-
 }
 
 
-
 /* =========================================================
-   桃花
+   桃花雨
 ========================================================= */
 
 .peach-petal {
   position: absolute;
 
-  top: -50px;
+  top: -60px;
+
+  z-index: 181;
 
   filter:
     drop-shadow(
       0 0 5px
-      rgba(255,190,190,0.8)
+      rgba(255, 210, 210, 0.95)
     );
 
   animation:
@@ -1294,18 +1143,17 @@ button {
     forwards;
 }
 
-
 @keyframes petalFall {
-
-  from {
+  0% {
     opacity: 0;
 
     transform:
-      translateY(-50px)
+      translateY(-60px)
+      translateX(0)
       rotate(0deg);
   }
 
-  15% {
+  12% {
     opacity: 1;
   }
 
@@ -1316,17 +1164,15 @@ button {
       rotate(180deg);
   }
 
-  to {
+  100% {
     opacity: 0;
 
     transform:
       translateY(115dvh)
-      translateX(-30px)
+      translateX(-35px)
       rotate(390deg);
   }
-
 }
-
 
 
 /* =========================================================
@@ -1335,37 +1181,31 @@ button {
 
 #blessing-popup {
   position: fixed;
-
   inset: 0;
 
-  z-index: 300;
+  z-index: 250;
 
   display: flex;
-
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   padding: 24px;
+
+  overflow: hidden;
 
   opacity: 0;
 
   pointer-events: none;
 
   background:
-    rgba(30, 3, 0, 0.76);
+    rgba(30, 3, 0, 0.78);
 
-  backdrop-filter:
-    blur(9px);
-
-  -webkit-backdrop-filter:
-    blur(9px);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
 
   transition:
-    opacity
-    0.5s
-    ease;
+    opacity 0.5s ease;
 }
-
 
 #blessing-popup.show {
   opacity: 1;
@@ -1373,71 +1213,70 @@ button {
   pointer-events: auto;
 }
 
-
 #blessing-popup.fu-mode {
   background:
     radial-gradient(
       circle,
-      rgba(139, 59, 0, 0.68),
-      rgba(20, 2, 0, 0.9)
+      rgba(153, 64, 0, 0.75),
+      rgba(22, 2, 0, 0.92)
     );
 }
-
 
 #blessing-popup.shou-mode {
   background:
     radial-gradient(
       circle,
-      rgba(139, 17, 4, 0.65),
-      rgba(20, 1, 0, 0.92)
+      rgba(147, 15, 4, 0.72),
+      rgba(23, 1, 0, 0.94)
     );
 }
 
 
+/* 旋转光 */
 
-/* =========================================================
-   弹窗旋转光
-========================================================= */
-
-.popup-rays,
-.wish-rays {
+.popup-rays {
   position: absolute;
+
+  left: 50%;
+  top: 50%;
 
   width: 150vw;
   height: 150vw;
 
   border-radius: 50%;
 
-  opacity: 0.14;
+  opacity: 0.18;
 
   background:
     repeating-conic-gradient(
-      #ffd36b 0deg 8deg,
-      transparent 8deg 18deg
+      from 0deg,
+      #ffd86c 0deg 7deg,
+      transparent 7deg 17deg
     );
 
+  transform:
+    translate(-50%, -50%);
+
   animation:
-    raySpin
-    16s
-    linear
-    infinite;
+    popupRaysSpin 16s linear infinite;
 }
 
-
-@keyframes raySpin {
+@keyframes popupRaysSpin {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
 
   to {
     transform:
+      translate(-50%, -50%)
       rotate(360deg);
   }
-
 }
 
 
-
-/* =========================================================
-   福寿弹窗内容
-========================================================= */
+/* 卡片 */
 
 .popup-card {
   position: relative;
@@ -1450,12 +1289,11 @@ button {
       390px
     );
 
-  padding:
-    32px 20px;
+  padding: 32px 20px;
 
   border:
     1px solid
-    rgba(255, 222, 155, 0.7);
+    rgba(255, 222, 155, 0.72);
 
   border-radius: 18px;
 
@@ -1464,39 +1302,35 @@ button {
   background:
     linear-gradient(
       145deg,
-      rgba(105, 27, 3, 0.88),
-      rgba(27, 4, 0, 0.95)
+      rgba(105, 27, 3, 0.9),
+      rgba(27, 4, 0, 0.96)
     );
 
   box-shadow:
     0 0 45px
-    rgba(255, 125, 5, 0.48);
+    rgba(255, 125, 5, 0.52);
 
   opacity: 0;
 
   transform:
-    scale(0.65);
+    scale(0.65)
+    translateY(20px);
 
   transition:
-    all
+    opacity 0.6s ease,
+    transform
     0.65s
-    cubic-bezier(
-      .2,
-      1.35,
-      .4,
-      1
-    );
+    cubic-bezier(.2,1.35,.4,1);
 }
-
 
 #blessing-popup.show
 .popup-card {
   opacity: 1;
 
   transform:
-    scale(1);
+    scale(1)
+    translateY(0);
 }
-
 
 .popup-symbol {
   font-family:
@@ -1518,22 +1352,18 @@ button {
   animation:
     symbolGlow
     1.4s
+    ease-in-out
     infinite;
 }
 
-
 @keyframes symbolGlow {
-
   50% {
-    transform:
-      scale(1.08);
+    transform: scale(1.08);
 
     filter:
       brightness(1.25);
   }
-
 }
-
 
 .popup-mini {
   margin-top: 10px;
@@ -1541,10 +1371,8 @@ button {
   color: #ffca74;
 
   font-size: 8px;
-
   letter-spacing: 4px;
 }
-
 
 .popup-card h2 {
   margin-top: 12px;
@@ -1557,17 +1385,14 @@ button {
     0 0 14px #ff9e27;
 }
 
-
 .popup-card p {
   margin-top: 14px;
 
   color: #ffe1af;
 
   font-size: 15px;
-
   line-height: 1.9;
 }
-
 
 .popup-hint {
   margin-top: 24px;
@@ -1579,22 +1404,19 @@ button {
 }
 
 
-
 /* =========================================================
    最终祝福
 ========================================================= */
 
 #wish-panel {
   position: fixed;
-
   inset: 0;
 
-  z-index: 310;
+  z-index: 300;
 
   display: flex;
-
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   padding: 24px;
 
@@ -1607,20 +1429,16 @@ button {
   background:
     radial-gradient(
       circle,
-      rgba(135, 41, 0, 0.76),
-      rgba(19, 2, 0, 0.94)
+      rgba(135, 41, 0, 0.78),
+      rgba(19, 2, 0, 0.95)
     );
 
-  backdrop-filter:
-    blur(10px);
-
-  -webkit-backdrop-filter:
-    blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   transition:
     opacity 0.7s ease;
 }
-
 
 #wish-panel.show {
   opacity: 1;
@@ -1628,6 +1446,45 @@ button {
   pointer-events: auto;
 }
 
+.wish-rays {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 150vw;
+  height: 150vw;
+
+  border-radius: 50%;
+
+  opacity: 0.14;
+
+  background:
+    repeating-conic-gradient(
+      #ffd36b 0deg 8deg,
+      transparent 8deg 18deg
+    );
+
+  animation:
+    wishRaysSpin
+    18s
+    linear
+    infinite;
+}
+
+@keyframes wishRaysSpin {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
 
 .wish-card {
   position: relative;
@@ -1640,8 +1497,7 @@ button {
       400px
     );
 
-  padding:
-    30px 20px;
+  padding: 30px 20px;
 
   border:
     1px solid
@@ -1654,13 +1510,13 @@ button {
   background:
     linear-gradient(
       145deg,
-      rgba(103, 25, 1, 0.9),
-      rgba(27, 3, 0, 0.96)
+      rgba(103, 25, 1, 0.92),
+      rgba(27, 3, 0, 0.97)
     );
 
   box-shadow:
     0 0 50px
-    rgba(255, 116, 0, 0.52);
+    rgba(255, 116, 0, 0.55);
 
   transform:
     scale(0.7);
@@ -1668,30 +1524,20 @@ button {
   transition:
     transform
     0.7s
-    cubic-bezier(
-      .2,
-      1.35,
-      .4,
-      1
-    );
+    cubic-bezier(.2,1.35,.4,1);
 }
-
 
 #wish-panel.show
 .wish-card {
-  transform:
-    scale(1);
+  transform: scale(1);
 }
-
 
 .wish-card small {
   color: #ffd175;
 
   font-size: 9px;
-
   letter-spacing: 2px;
 }
-
 
 .wish-symbol {
   margin-top: 12px;
@@ -1704,14 +1550,12 @@ button {
     serif;
 
   font-size: 78px;
-
   line-height: 1;
 
   text-shadow:
     0 0 15px #ffca51,
     0 0 42px #ff7000;
 }
-
 
 .wish-card h2 {
   margin-top: 4px;
@@ -1724,17 +1568,14 @@ button {
     0 0 15px #ffac36;
 }
 
-
 .wish-card p {
   margin-top: 18px;
 
   color: #ffe3b3;
 
   font-size: 14px;
-
   line-height: 2;
 }
-
 
 .wish-date {
   margin-top: 15px;
@@ -1743,7 +1584,6 @@ button {
 
   font-size: 12px;
 }
-
 
 .wish-tip {
   margin-top: 20px;
@@ -1755,14 +1595,12 @@ button {
 }
 
 
-
 /* =========================================================
    烟花
 ========================================================= */
 
 #fireworks {
   position: fixed;
-
   inset: 0;
 
   z-index: 400;
@@ -1772,7 +1610,6 @@ button {
 
   pointer-events: none;
 }
-
 
 
 /* =========================================================
@@ -1785,7 +1622,6 @@ button {
     font-size: 27px;
   }
 
-
   .god {
     bottom:
       calc(
@@ -1794,14 +1630,12 @@ button {
       );
   }
 
-
   .god-symbol {
     width: 55px;
     height: 55px;
 
     font-size: 27px;
   }
-
 
   #cake-btn {
     bottom:
@@ -1812,17 +1646,9 @@ button {
 
     min-width: 180px;
 
-    padding:
-      11px 20px;
+    padding: 11px 20px;
   }
-
 }
-
-
-
-/* =========================================================
-   特别窄的手机
-========================================================= */
 
 @media (max-width: 360px) {
 
@@ -1830,20 +1656,16 @@ button {
     left: 5%;
   }
 
-
   .longevity {
     right: 5%;
   }
-
 
   .god-symbol {
     width: 56px;
     height: 56px;
   }
 
-
   #cake-btn {
     min-width: 175px;
   }
-
 }

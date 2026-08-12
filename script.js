@@ -1,89 +1,54 @@
 /* =========================================================
-   获取页面元素
+   获取元素
 ========================================================= */
 
 const startButton =
-  document.getElementById(
-    "start-btn"
-  );
-
+  document.getElementById("start-btn");
 
 const startScreen =
-  document.getElementById(
-    "start-screen"
-  );
-
+  document.getElementById("start-screen");
 
 const scene =
-  document.getElementById(
-    "birthday-scene"
-  );
-
+  document.getElementById("birthday-scene");
 
 const music =
-  document.getElementById(
-    "birthday-music"
-  );
-
+  document.getElementById("birthday-music");
 
 const fuButton =
-  document.getElementById(
-    "fu-btn"
-  );
-
+  document.getElementById("fu-btn");
 
 const shouButton =
-  document.getElementById(
-    "shou-btn"
-  );
-
+  document.getElementById("shou-btn");
 
 const cakeButton =
-  document.getElementById(
-    "cake-btn"
-  );
-
+  document.getElementById("cake-btn");
 
 const blessingPopup =
-  document.getElementById(
-    "blessing-popup"
-  );
-
+  document.getElementById("blessing-popup");
 
 const popupSymbol =
-  document.getElementById(
-    "popup-symbol"
-  );
-
+  document.getElementById("popup-symbol");
 
 const popupTitle =
-  document.getElementById(
-    "popup-title"
-  );
-
+  document.getElementById("popup-title");
 
 const popupText =
-  document.getElementById(
-    "popup-text"
-  );
-
+  document.getElementById("popup-text");
 
 const wishPanel =
-  document.getElementById(
-    "wish-panel"
-  );
-
+  document.getElementById("wish-panel");
 
 const particleContainer =
-  document.getElementById(
-    "particles"
-  );
-
+  document.getElementById("particles");
 
 const effectLayer =
-  document.getElementById(
-    "effect-layer"
-  );
+  document.getElementById("effect-layer");
+
+const canvas =
+  document.getElementById("fireworks");
+
+const ctx =
+  canvas.getContext("2d");
 
 
 
@@ -91,40 +56,27 @@ const effectLayer =
    状态
 ========================================================= */
 
-let particlesStarted =
-  false;
+let particlesStarted = false;
 
+let popupTimer = null;
 
-let popupTimer =
-  null;
+let musicFadeTimer = null;
 
-
-let musicFadeTimer =
-  null;
+let fireworks = [];
 
 
 
 /* =========================================================
-   开启生日场景
+   开启寿宴
 ========================================================= */
 
 startButton.addEventListener(
   "click",
   async () => {
 
+    startButton.disabled = true;
 
-    startButton.disabled =
-      true;
-
-
-    /* 先显示场景 */
-
-    scene.classList.add(
-      "active"
-    );
-
-
-    /* 隐藏启动页 */
+    scene.classList.add("active");
 
     setTimeout(
       () => {
@@ -134,21 +86,15 @@ startButton.addEventListener(
         );
 
       },
-
       150
     );
 
 
-    /* 播放音乐 */
-
     try {
 
-      music.volume =
-        0;
-
+      music.volume = 0;
 
       await music.play();
-
 
       fadeMusicTo(
         0.6,
@@ -167,16 +113,11 @@ startButton.addEventListener(
     }
 
 
-    /* 启动普通粒子 */
-
-    if (
-      !particlesStarted
-    ) {
+    if (!particlesStarted) {
 
       startParticles();
 
-      particlesStarted =
-        true;
+      particlesStarted = true;
 
     }
 
@@ -208,12 +149,9 @@ function fadeMusicTo(
     startVolume;
 
 
-  const steps =
-    30;
+  const steps = 30;
 
-
-  let step =
-    0;
+  let step = 0;
 
 
   musicFadeTimer =
@@ -224,8 +162,7 @@ function fadeMusicTo(
 
 
         const progress =
-          step /
-          steps;
+          step / steps;
 
 
         const value =
@@ -244,9 +181,7 @@ function fadeMusicTo(
           );
 
 
-        if (
-          step >= steps
-        ) {
+        if (step >= steps) {
 
           music.volume =
             target;
@@ -259,9 +194,7 @@ function fadeMusicTo(
         }
 
       },
-
-      duration /
-      steps
+      duration / steps
     );
 
 }
@@ -269,7 +202,7 @@ function fadeMusicTo(
 
 
 /* =========================================================
-   普通金色粒子
+   普通粒子
 ========================================================= */
 
 function startParticles() {
@@ -304,13 +237,11 @@ function startParticles() {
 
 
       particle.style.width =
-        size
-        + "px";
+        size + "px";
 
 
       particle.style.height =
-        size
-        + "px";
+        size + "px";
 
 
       particleContainer.appendChild(
@@ -376,12 +307,10 @@ function startParticles() {
           particle.remove();
 
         },
-
         duration
       );
 
     },
-
     160
   );
 
@@ -390,13 +319,12 @@ function startParticles() {
 
 
 /* =========================================================
-   点击福
+   福按钮
 ========================================================= */
 
 fuButton.addEventListener(
   "click",
   () => {
-
 
     flashGodButton(
       fuButton
@@ -407,11 +335,9 @@ fuButton.addEventListener(
 
 
     showBlessing({
-      type:
-        "fu",
+      type: "fu",
 
-      symbol:
-        "福",
+      symbol: "福",
 
       title:
         "福星降临",
@@ -437,13 +363,12 @@ fuButton.addEventListener(
 
 
 /* =========================================================
-   点击寿
+   寿按钮
 ========================================================= */
 
 shouButton.addEventListener(
   "click",
   () => {
-
 
     flashGodButton(
       shouButton
@@ -454,11 +379,9 @@ shouButton.addEventListener(
 
 
     showBlessing({
-      type:
-        "shou",
+      type: "shou",
 
-      symbol:
-        "寿",
+      symbol: "寿",
 
       title:
         "寿星降临",
@@ -484,7 +407,7 @@ shouButton.addEventListener(
 
 
 /* =========================================================
-   福寿按钮点击光效
+   福寿按钮闪光
 ========================================================= */
 
 function flashGodButton(
@@ -511,7 +434,7 @@ function flashGodButton(
           "scale(1.45)",
 
         filter:
-          "brightness(1.7)"
+          "brightness(1.8)"
       },
 
       {
@@ -522,8 +445,7 @@ function flashGodButton(
     ],
 
     {
-      duration:
-        520,
+      duration: 520,
 
       easing:
         "ease-out"
@@ -543,7 +465,7 @@ function createFuRain() {
 
   for (
     let i = 0;
-    i < 30;
+    i < 32;
     i++
   ) {
 
@@ -573,8 +495,8 @@ function createFuRain() {
         fu.style.fontSize =
           (
             Math.random()
-            * 22
-            + 20
+            * 24
+            + 22
           )
           + "px";
 
@@ -601,15 +523,11 @@ function createFuRain() {
             fu.remove();
 
           },
-
-          duration
-          + 200
+          duration + 200
         );
 
       },
-
-      i *
-      70
+      i * 65
     );
 
   }
@@ -636,7 +554,7 @@ function createPetalRain() {
 
   for (
     let i = 0;
-    i < 32;
+    i < 34;
     i++
   ) {
 
@@ -671,7 +589,7 @@ function createPetalRain() {
         petal.style.fontSize =
           (
             Math.random()
-            * 12
+            * 13
             + 16
           )
           + "px";
@@ -699,15 +617,11 @@ function createPetalRain() {
             petal.remove();
 
           },
-
-          duration
-          + 200
+          duration + 200
         );
 
       },
-
-      i *
-      70
+      i * 65
     );
 
   }
@@ -717,7 +631,7 @@ function createPetalRain() {
 
 
 /* =========================================================
-   福寿弹窗
+   显示福寿弹窗
 ========================================================= */
 
 function showBlessing({
@@ -739,10 +653,7 @@ function showBlessing({
   );
 
 
-  if (
-    type ===
-    "fu"
-  ) {
+  if (type === "fu") {
 
     blessingPopup.classList.add(
       "fu-mode"
@@ -787,12 +698,7 @@ function showBlessing({
 
   popupTimer =
     setTimeout(
-      () => {
-
-        hideBlessing();
-
-      },
-
+      hideBlessing,
       4300
     );
 
@@ -827,13 +733,12 @@ blessingPopup.addEventListener(
 
 
 /* =========================================================
-   点击蛋糕许愿
+   蛋糕许愿
 ========================================================= */
 
 cakeButton.addEventListener(
   "click",
   () => {
-
 
     wishPanel.classList.add(
       "show"
@@ -851,35 +756,6 @@ cakeButton.addEventListener(
   }
 );
 
-fuButton.addEventListener("click", () => {
-  flashGodButton(fuButton);
-  createFuRain();
-
-  showBlessing({
-    type: "fu",
-    symbol: "福",
-    title: "福星降临",
-    text: "愿奶奶福气满满，平安喜乐，\n好运常伴，万事如意。"
-  });
-
-  launchMiniFireworks(3);
-  fadeMusicTo(0.75, 500);
-});
-
-shouButton.addEventListener("click", () => {
-  flashGodButton(shouButton);
-  createPetalRain();
-
-  showBlessing({
-    type: "shou",
-    symbol: "寿",
-    title: "寿星降临",
-    text: "愿奶奶身体健康，笑口常开，\n福如东海，寿比南山。"
-  });
-
-  launchMiniFireworks(3);
-  fadeMusicTo(0.75, 500);
-});
 
 
 /* =========================================================
@@ -889,7 +765,6 @@ shouButton.addEventListener("click", () => {
 wishPanel.addEventListener(
   "click",
   () => {
-
 
     wishPanel.classList.remove(
       "show"
@@ -907,28 +782,7 @@ wishPanel.addEventListener(
 
 
 /* =========================================================
-   烟花 canvas
-========================================================= */
-
-const canvas =
-  document.getElementById(
-    "fireworks"
-  );
-
-
-const ctx =
-  canvas.getContext(
-    "2d"
-  );
-
-
-let fireworks =
-  [];
-
-
-
-/* =========================================================
-   调整 Canvas
+   Canvas
 ========================================================= */
 
 function resizeCanvas() {
@@ -942,23 +796,23 @@ function resizeCanvas() {
 
 
   canvas.width =
-    window.innerWidth *
-    ratio;
+    window.innerWidth
+    * ratio;
 
 
   canvas.height =
-    window.innerHeight *
-    ratio;
+    window.innerHeight
+    * ratio;
 
 
   canvas.style.width =
-    window.innerWidth +
-    "px";
+    window.innerWidth
+    + "px";
 
 
   canvas.style.height =
-    window.innerHeight +
-    "px";
+    window.innerHeight
+    + "px";
 
 
   ctx.setTransform(
@@ -1013,9 +867,7 @@ function launchFireworks() {
         );
 
       },
-
-      i *
-      280
+      i * 280
     );
 
   }
@@ -1064,9 +916,7 @@ function launchMiniFireworks(
         );
 
       },
-
-      i *
-      300
+      i * 300
     );
 
   }
@@ -1085,24 +935,22 @@ function createExplosion(
   amount = 70
 ) {
 
-  const explosion =
-    [];
+  const explosion = [];
 
 
-  const colors =
-    [
+  const colors = [
 
-      [255, 213, 95],
+    [255, 213, 95],
 
-      [255, 240, 185],
+    [255, 240, 185],
 
-      [255, 145, 45],
+    [255, 145, 45],
 
-      [255, 91, 25],
+    [255, 91, 25],
 
-      [255, 181, 74]
+    [255, 181, 74]
 
-    ];
+  ];
 
 
   const selectedColor =
@@ -1146,8 +994,7 @@ function createExplosion(
         Math.sin(angle)
         * speed,
 
-      life:
-        1,
+      life: 1,
 
       decay:
         Math.random()
@@ -1198,17 +1045,13 @@ function animateFireworks() {
   fireworks.forEach(
     explosion => {
 
-
       explosion.forEach(
         particle => {
-
 
           if (
             particle.life <= 0
           ) {
-
             return;
-
           }
 
 
@@ -1240,18 +1083,11 @@ function animateFireworks() {
 
 
           ctx.arc(
-
             particle.x,
-
             particle.y,
-
             particle.size,
-
             0,
-
-            Math.PI *
-            2
-
+            Math.PI * 2
           );
 
 
@@ -1280,16 +1116,13 @@ function animateFireworks() {
           ctx.fill();
 
         }
-
       );
 
     }
-
   );
 
 
-  ctx.shadowBlur =
-    0;
+  ctx.shadowBlur = 0;
 
 
   fireworks =
@@ -1298,8 +1131,7 @@ function animateFireworks() {
 
         explosion.some(
           particle =>
-            particle.life >
-            0
+            particle.life > 0
         )
     );
 
