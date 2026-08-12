@@ -851,6 +851,35 @@ cakeButton.addEventListener(
   }
 );
 
+fuButton.addEventListener("click", () => {
+  flashGodButton(fuButton);
+  createFuRain();
+
+  showBlessing({
+    type: "fu",
+    symbol: "福",
+    title: "福星降临",
+    text: "愿奶奶福气满满，平安喜乐，\n好运常伴，万事如意。"
+  });
+
+  launchMiniFireworks(3);
+  fadeMusicTo(0.75, 500);
+});
+
+shouButton.addEventListener("click", () => {
+  flashGodButton(shouButton);
+  createPetalRain();
+
+  showBlessing({
+    type: "shou",
+    symbol: "寿",
+    title: "寿星降临",
+    text: "愿奶奶身体健康，笑口常开，\n福如东海，寿比南山。"
+  });
+
+  launchMiniFireworks(3);
+  fadeMusicTo(0.75, 500);
+});
 
 
 /* =========================================================
